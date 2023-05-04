@@ -5,25 +5,25 @@ USE proyecto;
 -- Crear tabla de empleados
 CREATE TABLE IF NOT EXISTS empleados (
     Cod_Emp INT PRIMARY KEY,
-    Nombre VARCHAR(255),
-    Correo VARCHAR(255),
+    Nombre VARCHAR(100),
+    Correo VARCHAR(100),
     Bonus DECIMAL(10,2),
     fecha_contrato DATE
 );
 
 -- Crear tabla de clientes
 CREATE TABLE IF NOT EXISTS clientes (
-    Nombre VARCHAR(255),
+    Nombre VARCHAR(100),
     DNI VARCHAR(20) PRIMARY KEY,
-    Correo VARCHAR(255),
+    Correo VARCHAR(100),
     Tel VARCHAR(20)
 );
 
 -- Crear tabla de productos
 CREATE TABLE IF NOT EXISTS productos (
     Cod_Pro INT PRIMARY KEY,
-    Nombre VARCHAR(255),
-    Licencia VARCHAR(255),
+    Nombre VARCHAR(100),
+    Licencia VARCHAR(100),
     Precio DECIMAL(10,2)
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS ordenes (
 -- Crear tabla de departamentos
 CREATE TABLE IF NOT EXISTS departamentos (
     Cod_Dep INT PRIMARY KEY,
-    Nombre VARCHAR(255),
+    Nombre VARCHAR(100),
     Cod_Emp INT,
     Salario DECIMAL(10,2),
     FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
