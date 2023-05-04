@@ -8,7 +8,9 @@ CREATE TABLE IF NOT EXISTS empleados (
     Nombre VARCHAR(100),
     Correo VARCHAR(100),
     Bonus DECIMAL(10,2),
-    fecha_contrato DATE
+    fecha_contrato DATE,
+    Cod_Dep INT,
+    FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
 );
 
 -- Crear tabla de clientes
@@ -44,7 +46,5 @@ CREATE TABLE IF NOT EXISTS ordenes (
 CREATE TABLE IF NOT EXISTS departamentos (
     Cod_Dep INT PRIMARY KEY,
     Nombre VARCHAR(100),
-    Cod_Emp INT,
-    Salario DECIMAL(10,2),
-    FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
+    Salario DECIMAL(10,2)
 );

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/estilito.css" />
+    <title>Indice</title>
+  </head>
+  <body>
+  <script>
+    function historial(){
+         var elements = document.querySelectorAll(".menu, .historial");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].style.display === "none") {
+            elements[i].style.display = "block";
+        } else {
+            elements[i].style.display = "none";
+        }
+    }
+    }
+  function hideShow() {
+    var elements = document.querySelectorAll(".menu, .bclases");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].style.display === "none") {
+            elements[i].style.display = "block";
+        } else {
+            elements[i].style.display = "none";
+        }
+    }
+}
+function insertar(){
+  window.location.href = "insertar.php";
+}
+function jugadores(){
+  window.location.href = "asignaturas.php";
+}
+    </script>
+    
+  <div class="todo">
+  <div id="cabecera">
+    
+    <h1>Indice de Contenido</h1>  
+
+  </div>
+  <div id="navegacion">
+<table id="tabla" align="center">
+    <th>
+ 
+    <button onclick="jugadores()">Mostrar todas las asignaturas</button><br>
+
+    <button onclick="insertar()">Insertar Asignatura</button>
+
+
+
+    
+    <div class="vacio"></div>
+  </table>
+ </div>
+</div>
+  </body>
+</html>
+
