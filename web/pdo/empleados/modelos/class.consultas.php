@@ -25,7 +25,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT empleados.clave_asignatura as clave , empleados.nombre as nombre , aulas.nombre as aula from empleados inner join aulas on empleados.clave_aula=aulas.clave_aula";
+		$sql = "SELECT empleados.Cod_Emp as codigo , empleados.Nombre as nombre , empleados.correo as correo , empleados.Bonus as bonus , empleados.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from empleados inner join departamentos on empleados.Cod_Dep=departamentos.Cod_Dep;";
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 
@@ -91,7 +91,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT empleados.clave_asignatura as clave , empleados.nombre as nombre , aulas.nombre as aula from empleados inner join aulas on empleados.clave_aula=aulas.clave_aula where empleados.clave_asignatura like :codigo order by aulas.clave_aula";
+		$sql = "SELECT Cod_Emp ,Nombre as nombre  , Bonus as bonus , correo from empleados where Cod_Emp like :codigo";
 		$statement = $conexion->prepare($sql);
 		$codigo = $codigo . '%';
 		$statement->bindParam(':codigo', $codigo);
@@ -118,18 +118,20 @@ class Consultas
 		return $registro;
 	}
 
-	public function modificarempleados($clave, $nombre, $aula)
+	public function modificarempleados($codigo, $nombre, $correo , $bonus , $dep)
 	{
 		$registro = null;
 
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "update empleados set nombre= :nombre, clave_aula= :aula where clave_asignatura= :codigo";
+		$sql = "update empleados set Nombre= :nombre, correo= :correo , Bonus= :bonus , Cod_Dep= :dep where Cod_Emp= :codigo";
 		$statement = $conexion->prepare($sql);
-		$statement->bindParam(':codigo', $clave);
+		$statement->bindParam(':codigo', $codigo);
 		$statement->bindParam(':nombre', $nombre);
-		$statement->bindParam(':aula', $aula);
+		$statement->bindParam(':correo', $correo);
+		$statement->bindParam(':bonus', $bonus);
+		$statement->bindParam(':dep', $dep);
 
 		if (!$statement) {
 			return "ERROR en la modificación del registro.
@@ -139,7 +141,7 @@ class Consultas
 			$statement->execute();
 			return "Se ha modificado.
 				<br>
-				<a href='../index.html'>Volver</a>";
+				<a href='../empleados.php'>Volver</a>";
 		}
 	}
 }

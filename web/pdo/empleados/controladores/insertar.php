@@ -11,7 +11,7 @@
 if (strlen($nombre)>0 && strlen($aula)>0) {
 
 	$consulta=new Consultas();
-	$consulta->insertarasignaturas($codigo,$nombre,$aula);
+	$consulta->insertarempleados($codigo,$nombre,$aula);
 	echo "<a href='../asignaturas.php'>Volver</a>";
 }else{
 	echo "Por favor, rellena todos los campos";

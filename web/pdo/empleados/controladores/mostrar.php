@@ -1,22 +1,32 @@
 <?php
 	function cargar(){
 		$consulta=new Consultas();
-			$fila=$consulta->cargarasignaturas();
+			$fila=$consulta->cargarempleados();
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
-						<th><a href='ordenar.php?orden=clave_asignatura'>Codigo</a></th>
-						<th><a href='ordenar.php?orden=nombre'>Nombre</a></th>
-						<th><a href='ordenar.php?orden=aula'>Aula</a></th>
-
+			<th><a>Codigo</a></th>
+			<th><a>Nombre</a></th>
+			<th><a>Bonus</a></th>
+			<th><a>Correo</a></th>
+			<th><a href='ordenar.php?orden=fecha'>Fecha Contratacion</a></th>
+			<th><a>Departamento</a></th>
+			<th><a>Salario</a></th>
+			<th><a>Salario Total</a></th>
+			
 						<th colspan='2'>Opciones</th>
 					</tr>";
 			foreach ($fila as $registro) {
-				echo "<tr><td>".$registro['clave']."</td>";
+				echo "<tr><td>".$registro['codigo']."</td>";
 				echo "<td>".$registro['nombre']."</td>";
-				echo "<td>".$registro['aula']."</td>";
+				echo "<td>".$registro['bonus']."</td>";
+				echo "<td>".$registro['correo']."</td>";
+				echo "<td>".$registro['fecha']."</td>";
+				echo "<td>".$registro['departamento']."</td>";
+				echo "<td>".$registro['salario']."</td>";
+				echo "<td>".$registro['totalsalario']."</td>";
 
-				echo "<td><a href='./modificar.php?codigo=". $registro['clave']."'>Modificar</td>";
-				echo "<td><a href='borrarM.php?codigo=". $registro['clave']."'>Borrar</td></tr>";
+				echo "<td><a href='./modificar.php?codigo=". $registro['codigo']."'>Modificar</td>";
+				echo "<td><a href='borrarM.php?codigo=". $registro['codigo']."'>Borrar</td></tr>";
 			}
 			echo "</table></div>";
 		}
@@ -24,7 +34,7 @@
 		function cargarOrdenar($orden){
 		$consulta=new Consultas();
 		
-			$fila=$consulta->ordenarasignaturas($orden);
+			$fila=$consulta->ordenarempleados($orden);
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
 			<th><a href='ordenar.php?orden=clave_asignatura'>Codigo</a></th>
@@ -46,7 +56,7 @@
 		function borrado(){
 			$codigo=$_REQUEST['codigo'];
 		$consulta=new Consultas();
-			$fila=$consulta->borasignaturas($codigo);
+			$fila=$consulta->borempleados($codigo);
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
 			<th>Código de Asignatura</th>
@@ -59,7 +69,7 @@
 				echo "<td>".$registro['nombre']."</td>";
 				echo "<td>".$registro['aula']."</td>";
 
-				echo "<td><a href='./asignaturas.php'>NO</td>";
+				echo "<td><a href='./empleados.php'>NO</td>";
 				echo "<td><a href='./controladores/borrar.php?codigo=". $registro['clave']."'>SI</td></tr>";
 			}
 			echo "</table></div>";
@@ -76,7 +86,7 @@
 			
 			<form action='./controladores/insertar.php'>
 			
-		<label for='productor'>Codigo de asignatura:</label>
+		<label for=''>Codigo de asignatura:</label>
 		<input type='text' name='codigo' id='productor'required><br>
 		<label for='productor'>Nombre:</label>
 		<input type='text' name='nombre' id='productor'required><br>";
@@ -102,7 +112,7 @@
 		}
 function buscar($codigo){
 		$consulta=new Consultas();
-		$fila=$consulta->buscarasignaturas($codigo);
+		$fila=$consulta->buscarempleados($codigo);
 		
 		if (empty($fila)) {
 			echo "Error: No se han encontrado resultados para el código proporcionado.";

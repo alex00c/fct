@@ -5,10 +5,12 @@
 	$consulta=new Consultas();
 	$codigo=$_REQUEST['codigo'];
 	$nombre=$_REQUEST['nombre'];
-	$aula=$_REQUEST['aula'];
+	$correo=$_REQUEST['correo'];
+	$bonus=$_REQUEST['bonus'];
+	$dep=$_REQUEST['departamento'];
 
 
-	$mensaje=$consulta->modificarasignaturas($codigo,$nombre,$aula);
+	$mensaje=$consulta->modificarempleados($codigo,$nombre,$correo, $bonus, $dep);
 
 	
 	echo $mensaje;

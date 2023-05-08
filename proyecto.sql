@@ -2,16 +2,7 @@ CREATE DATABASE IF NOT EXISTS proyecto;
 
 USE proyecto;
 
--- Crear tabla de empleados
-CREATE TABLE IF NOT EXISTS empleados (
-    Cod_Emp INT PRIMARY KEY,
-    Nombre VARCHAR(100),
-    Correo VARCHAR(100),
-    Bonus DECIMAL(10,2),
-    fecha_contrato DATE,
-    Cod_Dep INT,
-    FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
-);
+
 
 -- Crear tabla de clientes
 CREATE TABLE IF NOT EXISTS clientes (
@@ -29,6 +20,15 @@ CREATE TABLE IF NOT EXISTS productos (
     Precio DECIMAL(10,2)
 );
 
+
+
+-- Crear tabla de departamentos
+CREATE TABLE IF NOT EXISTS departamentos (
+    Cod_Dep INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Salario DECIMAL(10,2)
+);
+
 -- Crear tabla de órdenes
 CREATE TABLE IF NOT EXISTS ordenes (
     Cod_Pro INT,
@@ -42,9 +42,13 @@ CREATE TABLE IF NOT EXISTS ordenes (
     FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
 );
 
--- Crear tabla de departamentos
-CREATE TABLE IF NOT EXISTS departamentos (
-    Cod_Dep INT PRIMARY KEY,
+-- Crear tabla de empleados
+CREATE TABLE IF NOT EXISTS empleados (
+    Cod_Emp INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100),
-    Salario DECIMAL(10,2)
+    Correo VARCHAR(100),
+    Bonus DECIMAL(10,2),
+    fecha_contrato DATE,
+    Cod_Dep INT,
+    FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
 );
