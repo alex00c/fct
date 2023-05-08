@@ -33,7 +33,7 @@ VALUES (1, '12345678A', 1, '2021-05-01', 139),
 (5, '98765432E', 2, '2022-04-15', 299),
 (6, '34567890F', 4, '2022-03-28', 99);
 
-INSERT INTO departamentos (Cod_Dep, Nombre, Cod_Emp, Salario)
+INSERT INTO departamentos (Cod_Dep, Nombre,Salario)
 VALUES (1, 'Ventas', 2000.00),
        (2, 'Recursos Humanos', 2500.00),
        (3, 'Tecnología', 3000.00),
