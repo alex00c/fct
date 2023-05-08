@@ -4,6 +4,6 @@
 
 	$codigo=$_REQUEST['codigo'];
 		$consulta=new Consultas();
-	$consulta->borrarasignaturas($codigo);
-	echo "<a href='../asignaturas.php'>Volver</a>"
+	$consulta->borrarempleados($codigo);
+	echo "<a href='../empleados.php'>Volver</a>"
 ?>

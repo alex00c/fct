@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
-	<h1>Modificar Asignatura</h1>
+	<h1>Modificar Empleado</h1>
 	<?php 
 	seleccion();
 	 ?>

@@ -44,7 +44,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "delete from empleados where clave_asignatura=:codigo";
+		$sql = "delete from empleados where Cod_Emp=:codigo";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':codigo', $arg_codigo);
 
@@ -107,7 +107,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT empleados.clave_asignatura as clave , empleados.nombre as nombre , aulas.nombre as aula from empleados inner join aulas on empleados.clave_aula=aulas.clave_aula where empleados.clave_asignatura like :codigo";
+		$sql = "SELECT empleados.Cod_Emp as codigo , empleados.Nombre as nombre , empleados.correo as correo , empleados.Bonus as bonus , empleados.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from empleados inner join departamentos on empleados.Cod_Dep=departamentos.Cod_Dep where Cod_Emp= :codigo;";
 		$statement = $conexion->prepare($sql);
 
 		$statement->bindParam(':codigo', $codigo);
