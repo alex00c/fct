@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS ordenes (
     FOREIGN KEY (Cod_Cli) REFERENCES clientes (DNI),
     FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
 );
-
+-- Crear tabla de Detalles
 CREATE TABLE IF NOT EXISTS detalles_ordenes (
     id_orden VARCHAR(20),
     Cod_Pro INT,
