@@ -29,6 +29,19 @@ CREATE TABLE IF NOT EXISTS departamentos (
     Salario DECIMAL(10,2)
 );
 
+
+
+-- Crear tabla de empleados
+CREATE TABLE IF NOT EXISTS empleados (
+    Cod_Emp INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Correo VARCHAR(100),
+    Bonus DECIMAL(10,2),
+    fecha_contrato DATE,
+    Cod_Dep INT,
+    FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
+);
+
 -- Crear tabla de órdenes
 CREATE TABLE IF NOT EXISTS ordenes (
     Cod_Pro INT,
@@ -40,15 +53,4 @@ CREATE TABLE IF NOT EXISTS ordenes (
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
     FOREIGN KEY (Cod_Cli) REFERENCES clientes (DNI),
     FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
-);
-
--- Crear tabla de empleados
-CREATE TABLE IF NOT EXISTS empleados (
-    Cod_Emp INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100),
-    Correo VARCHAR(100),
-    Bonus DECIMAL(10,2),
-    fecha_contrato DATE,
-    Cod_Dep INT,
-    FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
 );
