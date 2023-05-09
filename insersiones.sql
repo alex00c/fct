@@ -11,13 +11,13 @@ VALUES ('Ana Martínez', '12345678A', 'anamartinez@example.com', '123456789'),
        ('Marta Rodríguez', '98765432E', 'martarodriguez@example.com', '876543210'),
        ('Javier Torres', '34567890F', 'javiertorres@example.com', '345678901');
 
-INSERT INTO productos (Cod_Pro, Nombre, Licencia, Precio)
-VALUES (1, 'Microsoft Office', 'JHG876F', 139),
-(2, 'Adobe Photoshop', 'BGT567H', 299),
-(3, 'AutoCAD', 'KJH876D', 199),
-(4, 'Sketch', 'RTY345T', 99),
-(5, 'VMware Fusion', 'FGH908J', 149),
-(6, 'Final Cut Pro', 'DFG765S', 299);
+INSERT INTO productos (Cod_Pro, Nombre Precio)
+VALUES (1, 'Microsoft Office', 139),
+(2, 'Adobe Photoshop', 299),
+(3, 'AutoCAD', 199),
+(4, 'Sketch', 99),
+(5, 'VMware Fusion', 149),
+(6, 'Final Cut Pro', 299);
 
 
 
@@ -28,6 +28,7 @@ VALUES (1, 'Ventas', 2000.00),
         (4, 'Contabilidad', 2200.00),
         (5, 'Marketing', 2800.00),
         (6, 'Desarrollo', 3200.00);
+
 INSERT INTO empleados (Cod_Emp, Nombre, Correo, Bonus, fecha_contrato , Cod_Dep)
 VALUES (1, 'Juan Pérez', 'juanperez@example.com', 500.00, '2020-01-01', 1),
        (2, 'María González', 'mariagonzalez@example.com', 750.00, '2019-05-01', 2),
@@ -36,10 +37,36 @@ VALUES (1, 'Juan Pérez', 'juanperez@example.com', 500.00, '2020-01-01', 1),
         (5, 'Miguel Sánchez', 'miguelsanchez@example.com', 600.00, '2021-05-01', 5),
         (6, 'Marina López', 'marinalopez@example.com', 350.00, '2020-08-15', 6);
 
-        INSERT INTO ordenes (Cod_Pro, Cod_Cli, Cod_Emp, Fecha, PrecioTotal)
-VALUES (1, '12345678A', 1, '2021-05-01', 139),
-       (2, '87654321B', 4, '2021-04-15',99 ),
-       (3, '56789012C', 6, '2021-03-28', 299),
-(4, '23456789D', 5, '2022-05-01', 149),
-(5, '98765432E', 2, '2022-04-15', 299),
-(6, '34567890F', 4, '2022-03-28', 99);
+INSERT INTO ordenes (id_orden, Cod_Emp, Cod_Cli, fecha) VALUES 
+('ORD001', 1, '12345678A', '2023-05-01'),
+('ORD002', 2, '87654321B', '2023-05-02'),
+('ORD003', 3, '23456789D', '2023-05-03'),
+('ORD004', 4, '34567890F', '2023-05-04');
+
+
+INSERT INTO detalles_ordenes (id_orden, Cod_Pro, cantidad, precio_unitario) VALUES 
+('ORD001', 1, 2, 69.50),
+('ORD002', 2, 1, 299.00),
+('ORD003', 6, 1, 299.00),
+('ORD003', 4, 2, 99.00);
+
+INSERT INTO licencia (Cod_Pro, licencia)
+VALUES 
+(1, 'ABC-DEF-GHI'),
+(1, 'JKL-MNO-PQR'),
+(1, 'STU-VWX-YZ0'),
+(2, '1AB-2CD-3EF'),
+(2, '4GH-5IJ-6KL'),
+(2, '7MN-8OP-9QR'),
+(3, '0ST-UVW-XYZ'),
+(3, 'ABC-DEF-GHI'),
+(3, 'JKL-MNO-PQR'),
+(4, 'STU-VWX-YZ0'),
+(4, '1AB-2CD-3EF'),
+(4, '4GH-5IJ-6KL'),
+(5, '7MN-8OP-9QR'),
+(5, '0ST-UVW-XYZ'),
+(5, 'ABC-DEF-GHI'),
+(6, 'JKL-MNO-PQR'),
+(6, 'STU-VWX-YZ0'),
+(6, '1AB-2CD-3EF');
