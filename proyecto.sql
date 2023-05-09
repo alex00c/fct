@@ -49,8 +49,17 @@ CREATE TABLE IF NOT EXISTS ordenes (
     Cod_Emp INT,
     Fecha DATE,
     PrecioTotal DECIMAL(10,2),
-    PRIMARY KEY (Cod_Pro, Cod_Cli, Cod_Emp),
+    id_orden VARCHAR(10),
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
     FOREIGN KEY (Cod_Cli) REFERENCES clientes (DNI),
     FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
+);
+
+CREATE TABLE detalles_ordenes (
+    id_orden VARCHAR(10),
+    Cod_Pro INT,
+    cantidad INT,
+    precio_unitario DECIMAL(10,2),
+    FOREIGN KEY (id_orden) REFERENCES ordenes (id_orden),
+    FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro)
 );
