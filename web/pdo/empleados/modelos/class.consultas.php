@@ -1,16 +1,18 @@
 <?php
 class Consultas
 {
-	public function insertarempleados($codigo,$nombre,$aula)
+	public function insertarempleados($nombre,$correo,$bonus,$fecha,$departamento)
 	{
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "insert into empleados(clave_asignatura,nombre,clave_aula) values (:clave, :nombre, :aula)";
+		$sql = "insert into empleados(Nombre,Bonus,Correo,fecha_contrato,Cod_Dep) values (:nombre, :bonus, :correo , :fecha , :dep)";
 		$statement = $conexion->prepare($sql);
-		$statement->bindParam(':clave', $codigo);
 		$statement->bindParam(':nombre', $nombre);
-		$statement->bindParam(':aula', $aula);
+		$statement->bindParam(':correo', $correo);
+		$statement->bindParam(':bonus', $bonus);
+		$statement->bindParam(':fecha', $fecha);
+		$statement->bindParam(':dep', $departamento);
 		if (!$statement) {
 			return "ERROR: No se ha insertado el registro.";
 		} else {

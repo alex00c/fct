@@ -99,17 +99,21 @@
 			
 		<label for='nombre'>Nombre:</label>
 		<input type='text' name='nombre' id='nombre'required><br>
-		<label for='productor'>Nombre:</label>
-		<input type='text' name='nombre' id='productor'required><br>";
-			echo "<label for='productor'>Aula:</label>";
-		    echo "<select name='aula' id='puesto'> <br>";
+		<label for='correo'>Correo:</label>
+		<input type='text' name='correo' id='correo'required><br>
+		<label for='bonus'>Bonus:</label>
+		<input type='number' name='bonus' id='bonus'required><br>
+		<label for='fecha'>Fecha de Contratacion:</label>
+		<input type='date' name='fecha' id='fecha'required><br>";
+			echo "<label for='departamento'>Departamento:</label>";
+		    echo "<select name='departamento' id='departamento'> <br>";
 		  
 		  		
-			$sql="SELECT clave_aula , nombre from aulas order by clave_aula";
+			$sql="SELECT Cod_Dep , Nombre from departamentos order by Cod_Dep";
 			$statement=$conexion->prepare($sql);
 			$statement->execute();
 			while ($codigo=$statement->fetch()) {
-				  echo ("<option value='".$codigo["clave_aula"]."'>".$codigo["nombre"]."</option>");
+				  echo ("<option value='".$codigo["Cod_Dep"]."'>".$codigo["Nombre"]."</option>");
 			  }
     		
 		  	         echo("</select><br>");
