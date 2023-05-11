@@ -48,6 +48,7 @@
 		<input type="text" name="buscar">
 		<input type="submit" value="BUSCAR">
 	</form>
+	
 </div>
 <br>
 

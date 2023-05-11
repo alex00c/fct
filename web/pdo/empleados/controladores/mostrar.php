@@ -37,18 +37,29 @@
 			$fila=$consulta->ordenarempleados($orden);
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
-			<th><a href='ordenar.php?orden=clave_asignatura'>Codigo</a></th>
-			<th><a href='ordenar.php?orden=nombre'>Nombre</a></th>
-			<th><a href='ordenar.php?orden=aula'>Aula</a></th>
+			<th><a href='ordenar.php?orden=codigo'>Codigo</a></th>
+			<th><a>Nombre</a></th>
+			<th><a>Bonus</a></th>
+			<th><a>Correo</a></th>
+			<th><a href='ordenar.php?orden=fecha'>Fecha Contratacion</a></th>
+			<th><a>Departamento</a></th>
+			<th><a>Salario</a></th>
+			<th><a>Salario Total</a></th>
+			
 						<th colspan='2'>Opciones</th>
 					</tr>";
 			foreach ($fila as $registro) {
-				echo "<tr><td>".$registro['clave']."</td>";
+				echo "<tr><td>".$registro['codigo']."</td>";
 				echo "<td>".$registro['nombre']."</td>";
-				echo "<td>".$registro['aula']."</td>";
+				echo "<td>".$registro['bonus']."</td>";
+				echo "<td>".$registro['correo']."</td>";
+				echo "<td>".$registro['fecha']."</td>";
+				echo "<td>".$registro['departamento']."</td>";
+				echo "<td>".$registro['salario']."</td>";
+				echo "<td>".$registro['totalsalario']."</td>";
 
-				echo "<td><a href='./modificar.php?codigo=". $registro['clave']."'>Modificar</td>";
-				echo "<td><a href='borrarM.php?codigo=". $registro['clave']."'>Borrar</td></tr>";
+				echo "<td><a href='./modificar.php?codigo=". $registro['codigo']."'>Modificar</td>";
+				echo "<td><a href='borrarM.php?codigo=". $registro['codigo']."'>Borrar</td></tr>";
 			}
 			echo "</table></div>";
 		}
@@ -132,20 +143,31 @@ function buscar($codigo){
 		if (empty($fila)) {
 			echo "Error: No se han encontrado resultados para el código proporcionado.";
 		} else {
-			echo "<table class='table table-striped' border='1'>";
+			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
-			<th>Código de Asignatura</th>
-			<th>Nombre</th>
-			<th>Aula</th>
-							<th colspan='2'>Opciones</th>
-						</tr>";
+			<th><a>Codigo</a></th>
+			<th><a>Nombre</a></th>
+			<th><a>Bonus</a></th>
+			<th><a>Correo</a></th>
+			<th><a href='ordenar.php?orden=fecha'>Fecha Contratacion</a></th>
+			<th><a>Departamento</a></th>
+			<th><a>Salario</a></th>
+			<th><a>Salario Total</a></th>
+			
+						<th colspan='2'>Opciones</th>
+					</tr>";
 			foreach ($fila as $registro) {
-			echo "<tr><td>".$registro['clave']."</td>";
-					echo "<td>".$registro['nombre']."</td>";
-					echo "<td>".$registro['aula']."</td>";
+				echo "<tr><td>".$registro['codigo']."</td>";
+				echo "<td>".$registro['nombre']."</td>";
+				echo "<td>".$registro['bonus']."</td>";
+				echo "<td>".$registro['correo']."</td>";
+				echo "<td>".$registro['fecha']."</td>";
+				echo "<td>".$registro['departamento']."</td>";
+				echo "<td>".$registro['salario']."</td>";
+				echo "<td>".$registro['totalsalario']."</td>";
 
-					echo "<td><a href='./modificar.php?codigo=". $registro['clave']."'>Modificar</td>";
-					echo "<td><a href='./borrarM.php?codigo=". $registro['clave']."'>Borrar</td></tr>";
+					echo "<td><a href='./modificar.php?codigo=". $registro['codigo']."'>Modificar</td>";
+					echo "<td><a href='./borrarM.php?codigo=". $registro['codigo']."'>Borrar</td></tr>";
 				}
 					echo "</table>";
 		}

@@ -62,7 +62,7 @@ class Consultas
 		$registro = null;
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
-		$sql = "SELECT empleados.clave_asignatura as clave , empleados.nombre as nombre , aulas.nombre as aula from empleados inner join aulas on empleados.clave_aula=aulas.clave_aula order by " . $orden;
+		$sql = "SELECT empleados.Cod_Emp as codigo , empleados.Nombre as nombre , empleados.correo as correo , empleados.Bonus as bonus , empleados.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from empleados inner join departamentos on empleados.Cod_Dep=departamentos.Cod_Dep order by " . $orden;
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 		while ($fila = $statement->fetch()) {
@@ -77,7 +77,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT empleados.clave_asignatura as clave , empleados.nombre as nombre , aulas.nombre as aula from empleados inner join aulas on empleados.clave_aula=aulas.clave_aula where empleados.nombre like :codigo order by aulas.clave_aula";
+		$sql = "SELECT empleados.Cod_Emp as codigo , empleados.Nombre as nombre , empleados.correo as correo , empleados.Bonus as bonus , empleados.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from empleados inner join departamentos on empleados.Cod_Dep=departamentos.Cod_Dep where Cod_Emp=:codigo;";
 		$statement = $conexion->prepare($sql);
 		$codigo = $codigo . '%';
 		$statement->bindParam(':codigo', $codigo);

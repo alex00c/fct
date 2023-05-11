@@ -31,7 +31,7 @@
 			background-color: rgb(219, 246, 217);
 		}
 	</style>
-	<h1>Relacion de Asignaturas</h1><br>
+	<h1>Relacion de Empleados</h1><br>
 	<div class="busqueda">
 	<form>
 		<input type="text" name="buscar">
@@ -43,7 +43,7 @@
 </div>
 <div class="insertar">
 	<br>
-<a href="insertar.php">Nueva Asignatura</a>
+<a href="insertar.php">Nuevo Empleado</a>
 
 <br>
 </div>
