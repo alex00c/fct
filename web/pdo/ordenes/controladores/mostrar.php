@@ -20,7 +20,7 @@
 				
 				
 
-				echo "<td><a href='../detalles/mostrar.php?codigo=". $registro['id']."'>Ver Detalles</td>";
+				echo "<td><a href='../detalles/detalles.php?buscar=". $registro['id']."'>Ver Detalles</td>";
 				
 			}
 			echo "</table></div>";

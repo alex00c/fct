@@ -42,7 +42,7 @@
 			background-color: rgb(219, 246, 217);
 		}
 	</style>
-	<h1>Relacion de Ordenes</h1><br>
+	<h1>Detalles de Ordenes</h1><br>
 	<div class="busqueda">
 	<form>
 		<input type="text" name="buscar">
