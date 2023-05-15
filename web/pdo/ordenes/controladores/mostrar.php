@@ -8,6 +8,7 @@
 			<th><a href='ordenar.php?orden=empleado'>Empleado</a></th>
 			<th><a href='ordenar.php?orden=cliente'>Cliente</a></th>
 			<th><a href='ordenar.php?orden=fecha'>Fecha</a></th>
+			<th><a href='ordenar.php?orden=precio'>Precio</a></th>
 			
 			
 						<th colspan='1'>Opciones</th>
@@ -17,6 +18,7 @@
 				echo "<td>".$registro['empleado']."</td>";
 				echo "<td>".$registro['cliente']."</td>";
 				echo "<td>".$registro['fecha']."</td>";
+				echo "<td>".$registro['precio']."</td>";
 				
 				
 
@@ -36,7 +38,7 @@
 			<th><a href='ordenar.php?orden=empleado'>Empleado</a></th>
 			<th><a href='ordenar.php?orden=cliente'>Cliente</a></th>
 			<th><a href='ordenar.php?orden=fecha'>Fecha</a></th>
-			
+			<th><a href='ordenar.php?orden=precio'>Precio</a></th>
 			
 						<th colspan='1'>Opciones</th>
 					</tr>";
@@ -45,7 +47,7 @@
 				echo "<td>".$registro['empleado']."</td>";
 				echo "<td>".$registro['cliente']."</td>";
 				echo "<td>".$registro['fecha']."</td>";
-				
+				echo "<td>".$registro['precio']."</td>";
 				
 
 				echo "<td><a href='../detalles/detalles.php?buscar=". $registro['id']."'>Ver Detalles</td>";
@@ -68,7 +70,7 @@ function buscar($codigo){
 			<th><a href='ordenar.php?orden=empleado'>Empleado</a></th>
 			<th><a href='ordenar.php?orden=cliente'>Cliente</a></th>
 			<th><a href='ordenar.php?orden=fecha'>Fecha</a></th>
-			
+			<th><a href='ordenar.php?orden=precio'>Precio</a></th>
 			
 						<th colspan='1'>Opciones</th>
 					</tr>";
@@ -77,7 +79,7 @@ function buscar($codigo){
 				echo "<td>".$registro['empleado']."</td>";
 				echo "<td>".$registro['cliente']."</td>";
 				echo "<td>".$registro['fecha']."</td>";
-				
+				echo "<td>".$registro['precio']."</td>";
 				
 
 				echo "<td><a href='../detalles/detalles.php?buscar=". $registro['id']."'>Ver Detalles</td>";

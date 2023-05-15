@@ -13,8 +13,10 @@
 if (strlen($id)>0 && strlen($empleado)>0) {
 
 	$consulta=new Consultas();
-	$consulta->insertarorden($id,$empleado,$cliente,$producto,$cantidad);
-	echo "<a href='../empleados.php'>Volver</a>";
+	$consulta->insertarorden($id,$empleado,$cliente);
+	$consulta->insertardetalles($id,$producto,$cantidad);
+	$consulta->actualizaprecio($id);
+	echo "<a href='../../ordenes/ordenes.php'>Volver</a>";
 }else{
 	echo "Por favor, rellena todos los campos";
 }
