@@ -37,11 +37,11 @@ VALUES (1, 'Juan Pérez', 'juanperez@example.com', 500.00, '2020-01-01', 1),
         (5, 'Miguel Sánchez', 'miguelsanchez@example.com', 600.00, '2021-05-01', 5),
         (6, 'Marina López', 'marinalopez@example.com', 350.00, '2020-08-15', 6);
 
-INSERT INTO ordenes (id_orden, Cod_Emp, Cod_Cli, fecha) VALUES 
-('ORD001', 1, '12345678A', '2023-05-01'),
-('ORD002', 2, '87654321B', '2023-05-02'),
-('ORD003', 3, '23456789D', '2023-05-03'),
-('ORD004', 4, '34567890F', '2023-05-04');
+INSERT INTO ordenes (id_orden, Cod_Emp, Cod_Cli, fecha , precio) VALUES 
+('ORD001', 1, '12345678A', '2023-05-01', 0),
+('ORD002', 2, '87654321B', '2023-05-02' , 0),
+('ORD003', 3, '23456789D', '2023-05-03', 0),
+('ORD004', 4, '34567890F', '2023-05-04', 0);
 
 
 INSERT INTO detalles_ordenes (id_orden, Cod_Pro, cantidad, precio_unitario) VALUES 

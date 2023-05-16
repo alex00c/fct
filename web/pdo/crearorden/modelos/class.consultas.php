@@ -6,7 +6,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "insert into ordenes (id_orden,Cod_Emp,Cod_Cli,fecha) values (:id, :empleado, :cliente,CURDATE())";
+		$sql = "insert into ordenes (id_orden,Cod_Emp,Cod_Cli,fecha) values (:id, :empleado, :cliente,NOW())";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':id', $id);
 		$statement->bindParam(':empleado', $empleado);

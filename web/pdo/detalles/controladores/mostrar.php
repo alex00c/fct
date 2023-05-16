@@ -92,7 +92,7 @@ function buscar($codigo){
 			<th><a>Cantidad</a></th>
 			<th><a>Precio Unitario</a></th>
 			<th><a>Precio</a></th>
-			
+			<th colspan='2'>Opciones</th>
 			
 			
 						
@@ -106,16 +106,16 @@ function buscar($codigo){
 				echo "<td>".$registro['cantidad']."</td>";
 				echo "<td>".$registro['precioud']."</td>";
 				echo "<td>".$registro['total']."</td>";
-				
+				echo "<td><a href='./modificar.php?codigo=". $registro['id']."&cod_pro=". $registro['codigo']."'>Modificar</td>";
+				echo "<td><a href='borrarM.php?codigo=". $registro['id']."'>Borrar</td>";
 				
 
 				
 				}
-				echo "<th colspan='2'>Opciones</th>";
-				echo "<td><a href='./modificar.php?codigo=". $registro['id']."&cod_pro=". $registro['codigo']."'>Modificar</td>";
-				echo "<td><a href='borrarM.php?codigo=". $registro['id']."'>Borrar</td>";
+				
 				
 					echo "</table>";
+					echo "<p>PDF</p><a href='generatepdf.php?buscar=". $registro['id']."'><i class='material-icons'>picture_as_pdf</i></a>";
 					echo "<div id=precio>";
 					echo "<h2>PRECIO TOTAL DE LA ORDEN</h2>";
 					echo "<h3>".$registro['pago']."</h3>";

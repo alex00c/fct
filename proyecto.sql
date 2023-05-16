@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS ordenes (
     Cod_Emp INT,
     Cod_Cli VARCHAR(20),
     fecha DATE,
+    precio DECIMAL(10,2),
     FOREIGN KEY (Cod_Cli) REFERENCES clientes (DNI),
     FOREIGN KEY (Cod_Emp) REFERENCES empleados (Cod_Emp)
 );
