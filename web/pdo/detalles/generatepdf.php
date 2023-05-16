@@ -11,22 +11,22 @@ class PDF extends FPDF
     function Tabla($header, $data)
     {
         $this->SetFont('Arial', '', 10);
-        foreach ($header as $col) {
-            $this->Cell(100, 40, $col, 0, 0,'L');
-        }
+
         // Imprimir encabezados de columna
-        $firstRow = true;
+        foreach ($header as $col) {
+            $this->Cell(100, 40, $col, 0, 0, 'L');
+        }
+        $this->Ln();
+
+        // Imprimir datos
         foreach ($data as $row) {
-            $this->Cell(100,40, utf8_decode($row['id']), 0, 0, 'L');
-            if ($firstRow) {
-                $this->Cell(100,40, utf8_decode($row['empleado']), 0, 0, 'L');
-                $this->Cell(100,40, utf8_decode($row['cliente']), 0, 0, 'L');
-                $this->Cell(100,40, utf8_decode($row['fecha']), 0, 0, 'L');
-                $firstRow = false;
-            }
-            $this->Cell(100,40, utf8_decode($row['producto']), 0, 0, 'L');
-            $this->Cell(100,40, utf8_decode($row['cantidad']), 0, 0, 'L');
-            $this->Cell(100,40, utf8_decode($row['total']), 0, 0, 'L');
+            $this->Cell(100, 40, $row['id'], 0, 0, 'L');
+            $this->Cell(100, 40, utf8_decode($row['empleado']), 0, 0, 'L');
+            $this->Cell(100, 40, $row['cliente'], 0, 0, 'L');
+            $this->Cell(100, 40, $row['fecha'], 0, 0, 'L');
+            $this->Cell(100, 40, $row['producto'], 0, 0, 'L');
+            $this->Cell(100, 40, $row['cantidad'], 0, 0, 'L');
+            $this->Cell(100, 40, $row['total'], 0, 0, 'L');
             $this->Ln();
         }
     }
