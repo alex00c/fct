@@ -11,7 +11,7 @@ VALUES ('Ana Martínez', '12345678A', 'anamartinez@example.com', '123456789'),
        ('Marta Rodríguez', '98765432E', 'martarodriguez@example.com', '876543210'),
        ('Javier Torres', '34567890F', 'javiertorres@example.com', '345678901');
 
-INSERT INTO productos (Cod_Pro, Nombre Precio)
+INSERT INTO productos (Cod_Pro, Nombre , Precio)
 VALUES (1, 'Microsoft Office', 139),
 (2, 'Adobe Photoshop', 299),
 (3, 'AutoCAD', 199),
