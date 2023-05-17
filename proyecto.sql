@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS clientes (
 CREATE TABLE IF NOT EXISTS productos (
     Cod_Pro INT PRIMARY KEY,
     Nombre VARCHAR(100),
-    Precio DECIMAL(10,2)
+    Precio DECIMAL(10,2),
+    stock INT
 );
 
 CREATE TABLE IF NOT EXISTS licencia (
@@ -35,6 +36,7 @@ CREATE TABLE IF NOT EXISTS empleados (
     Correo VARCHAR(100),
     Bonus DECIMAL(10,2),
     fecha_contrato DATE,
+    telefono VARCHAR(10),
     Cod_Dep INT,
     FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
 );
@@ -57,4 +59,23 @@ CREATE TABLE IF NOT EXISTS detalles_ordenes (
     precio_unitario DECIMAL(10,2),
     PRIMARY KEY (id_orden, Cod_Pro),
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro)
+);
+
+--Almacena las licencias / nºde serie de productos vendidos
+
+CREATE TABLE ventas (
+    Cod_Pro INT,
+    Licencias INT,
+    id_orden INT,
+    fecha DATE,
+    
+);
+
+-- Guarda las ordenes que se han cancelado ademas del motivo de la cancelacion
+
+CREATE TABLE ordenes_canceladas (
+    id_orden INT,
+    motivo VARCHAR(255),
+    fecha_cancelacion DATE,
+    PRIMARY KEY (id_orden)
 );
