@@ -19,6 +19,24 @@ class Consultas
 			return "El registro se ha insertado correctamente.";
 		}
 	}
+	public function insertarid($codigo,$numero)
+	{
+		$modelo = new Conexion();
+		$conexion = $modelo->conectar();
+
+		$sql = "insert into identificador(Cod_Pro,num_serie) values (:codigo, :numero)";
+		$statement = $conexion->prepare($sql);
+		$statement->bindParam(':codigo', $codigo);
+		$statement->bindParam(':numero', $numero);
+
+
+		if (!$statement) {
+			return "ERROR: No se ha insertado el registro.";
+		} else {
+			$statement->execute();
+			return "El registro se ha insertado correctamente.";
+		}
+	}
 	public function cargarproductos()
 	{
 		$registro = null;

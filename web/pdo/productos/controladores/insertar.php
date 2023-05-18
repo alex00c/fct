@@ -4,6 +4,8 @@
 	$codigo=$_REQUEST['Cod_Pro'];
 	$nombre=$_REQUEST['Nombre'];
 	$precio=$_REQUEST['Precio'];
+	$numero=$_REQUEST['id'];
+	
 
 
 

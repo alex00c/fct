@@ -1,7 +1,9 @@
 <?php
 	
+
 	function selectPuesto()
 	{
+		
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 		$idorden = sprintf("ORD%010d", rand(1, 9999999999));

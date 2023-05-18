@@ -68,11 +68,23 @@
 			}
 			echo "</table></div>";
 		}
+		function menu() {
+		
+		echo "
+		<fieldset> 
+		<legend>Seleccione la acción</legend>
+		<div class='todo'>
+			<div id='form'>
+				<a href='./nuevo-producto.php'><button type='button'>Nuevo Producto</button></a>
+				<a href='./producto-existente.php'><button type='button'>Producto existente</button></a>
+			</div>
+		</div>";}
+		
 		function selectPuesto(){
 
 			echo "
 			<fieldset>
-			<legend>Insercion de Producto</legend>
+			<legend>Insercion de Producto nuevo</legend>
 			<div class='todo'>
 			<div id='form'>
 			
@@ -82,6 +94,42 @@
 		<input type='text' name='nombre' id='nombre'required><br>
 		<label for='precio'>Precio:</label>
 		<input type='text' name='precio' id='precio'required><br>
+		<label for='id'>Numero de Serie:</label>
+		<input type='text' name='id' id='id'required><br>
+
+		<div class='botones'>
+		<input type='submit' value='GUARDAR'>
+		</div>
+	</form></div></div>";
+		
+		}
+		function selectid(){
+			$codigo=null;
+			$modelo=new Conexion();
+			$conexion=$modelo->conectar();
+			echo "
+			<fieldset>
+			<legend>Insercion de Producto existente</legend>
+			<div class='todo'>
+			<div id='form'>
+			
+			<form action='./controladores/insertarid.php'>";
+			
+			echo "<label for='departamento'>Departamento:</label>";
+		    echo "<select name='departamento' id='departamento'> <br>";
+		  
+		  		
+			$sql="SELECT Cod_Pro , Nombre from productos order by Cod_Pro";
+			$statement=$conexion->prepare($sql);
+			$statement->execute();
+			while ($codigo=$statement->fetch()) {
+				  echo ("<option value='".$codigo["Cod_Pro"]."'>".$codigo["Nombre"]."</option>");
+			  }
+    		
+		  	         echo("</select><br>");
+					 echo"
+		<label for='nuemero'>Numero de Serie:</label>
+		<input type='text' name='nuemero' id='nuemero'required><br>
 
 
 		<div class='botones'>
@@ -90,6 +138,7 @@
 	</form></div></div>";
 		
 		}
+		
 function buscar($codigo){
 		$consulta=new Consultas();
 		$fila=$consulta->buscarproductos($codigo);
