@@ -3,14 +3,15 @@
 	require('../modelos/class.consultas.php');
 	require('./mostrar.php');
 	$consulta=new Consultas();
-	$codigo=$_REQUEST['codigo'];
+	$codigo=$_REQUEST['DNI'];
 	$nombre=$_REQUEST['nombre'];
+	$dni=$_REQUEST['DNI'];
 	$correo=$_REQUEST['correo'];
-	$bonus=$_REQUEST['bonus'];
-	$dep=$_REQUEST['departamento'];
+	$tel=$_REQUEST['Tel'];
+	
 
 
-	$mensaje=$consulta->modificarempleados($codigo,$nombre,$correo, $bonus, $dep);
+	$mensaje=$consulta->modificarclientes($codigo,$nombre,$dni,$correo,$tel);
 
 	
 	echo $mensaje;

@@ -3,12 +3,12 @@
 	require('../modelos/class.consultas.php');
 	require('./mostrar.php');
 	$consulta=new Consultas();
-	$codigo=$_REQUEST['codigo'];
 	$nombre=$_REQUEST['nombre'];
-	$precio=$_REQUEST['Precio'];
+	$salario=$_REQUEST['salario'];
+	$codigo=$_REQUEST['codigo'];
 
 
-	$mensaje=$consulta->modificarproductos($codigo,$nombre,$precio);
+	$mensaje=$consulta->insertardep($codigo,$nombre,$salario);
 
 	
 	echo $mensaje;

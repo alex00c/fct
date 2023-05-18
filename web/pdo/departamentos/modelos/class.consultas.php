@@ -1,17 +1,16 @@
 <?php
 class Consultas
 {
-	public function insertarproductos($codigo,$nombre,$precio)
+	public function insertardep($codigo,$nombre,$salario)
 	{
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "insert into productos(Cod_Pro,Nombre,Precio) values (:codigo, :nombre, :precio)";
+		$sql = "insert into departamentos(Cod_Dep,Nombre,Salario) values (:codigo, :nombre, :salario)";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':codigo', $codigo);
 		$statement->bindParam(':nombre', $nombre);
-		$statement->bindParam(':precio', $precio);
-
+		$statement->bindParam(':salario', $salario);
 		if (!$statement) {
 			return "ERROR: No se ha insertado el registro.";
 		} else {
@@ -19,14 +18,14 @@ class Consultas
 			return "El registro se ha insertado correctamente.";
 		}
 	}
-	public function cargarproductos()
+	public function cargardep()
 	{
 		$registro = null;
 
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT * FROM productos";
+		$sql = "SELECT * from departamentos;";
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 
@@ -39,13 +38,13 @@ class Consultas
 	
 	
 
-	public function borrarproductos($arg_codigo)
+	public function borrardep($arg_codigo)
 	{
 
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "delete from productos where Cod_Pro=:codigo";
+		$sql = "delete from departamentos where Cod_Dep = :codigo";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':codigo', $arg_codigo);
 
@@ -56,12 +55,12 @@ class Consultas
 			return "El registro se ha borrado correctamente.";
 		}
 	}
-	public function ordenarproductos($orden)
+	public function ordenardep($orden)
 	{
 		$registro = null;
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
-		$sql = "SELECT * from productos order by " . $orden;
+		$sql = "SELECT * from departamentos order by " . $orden;
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 		while ($fila = $statement->fetch()) {
@@ -70,29 +69,13 @@ class Consultas
 		return $registro;
 	}
 
-	public function buscarproductos($codigo)
+	public function buscardep($codigo)
 	{
 		$registro = null;
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT * from productos where Cod_Pro=:codigo;";
-		$statement = $conexion->prepare($sql);
-		$codigo = $codigo . '%';
-		$statement->bindParam(':codigo', $codigo);
-		$statement->execute();
-		while ($fila = $statement->fetch()) {
-			$registro[] = $fila;
-		}
-		return $registro;
-	}
-	public function modproductos($codigo)
-	{
-		$registro = null;
-		$modelo = new Conexion();
-		$conexion = $modelo->conectar();
-
-		$sql = "SELECT * from productos where Cod_Pro = :codigo";
+		$sql = "SELECT * from departamentos where Nombre like :codigo;";
 		$statement = $conexion->prepare($sql);
 		$codigo = $codigo . '%';
 		$statement->bindParam(':codigo', $codigo);
@@ -102,13 +85,29 @@ class Consultas
 		}
 		return $registro;
 	}
-	public function borproductos($codigo)
+	public function moddep($codigo)
 	{
 		$registro = null;
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT * from productos where Cod_Pro= :codigo;";
+		$sql = "SELECT * from departamentos where Cod_Dep = :codigo";
+		$statement = $conexion->prepare($sql);
+		$codigo = $codigo . '%';
+		$statement->bindParam(':codigo', $codigo);
+		$statement->execute();
+		while ($fila = $statement->fetch()) {
+			$registro[] = $fila;
+		}
+		return $registro;
+	}
+	public function bordep($codigo)
+	{
+		$registro = null;
+		$modelo = new Conexion();
+		$conexion = $modelo->conectar();
+
+		$sql = "SELECT * from departamentos where Cod_Dep= :codigo;";
 		$statement = $conexion->prepare($sql);
 
 		$statement->bindParam(':codigo', $codigo);
@@ -119,18 +118,18 @@ class Consultas
 		return $registro;
 	}
 
-	public function modificarproductos($codigo ,$nombre, $precio)
+	public function modificardep($codigo, $nombre, $salario)
 	{
 		$registro = null;
 
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "update productos set Nombre= :nombre , Precio= :precio where Cod_Pro= :codigo";
+		$sql = "update departamentos set Nombre= :nombre, Salario= :salario where Cod_Dep= :codigo";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':codigo', $codigo);
 		$statement->bindParam(':nombre', $nombre);
-		$statement->bindParam(':precio', $precio);
+		$statement->bindParam(':salario', $salario);
 
 
 		if (!$statement) {
@@ -141,7 +140,7 @@ class Consultas
 			$statement->execute();
 			return "Se ha modificado.
 				<br>
-				<a href='../productos.php'>Volver</a>";
+				<a href='../dep.php'>Volver</a>";
 		}
 	}
 }

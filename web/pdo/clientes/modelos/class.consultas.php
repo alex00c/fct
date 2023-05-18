@@ -27,7 +27,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT clientes.Cod_Emp as codigo , clientes.Nombre as nombre , clientes.correo as correo , clientes.Bonus as bonus , clientes.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from clientes inner join departamentos on clientes.Cod_Dep=departamentos.Cod_Dep;";
+		$sql = "SELECT * from clientes;";
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 
@@ -46,7 +46,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "delete from clientes where Cod_Emp=:codigo";
+		$sql = "delete from clientes where DNI=:codigo";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':codigo', $arg_codigo);
 
@@ -62,7 +62,7 @@ class Consultas
 		$registro = null;
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
-		$sql = "SELECT clientes.Cod_Emp as codigo , clientes.Nombre as nombre , clientes.correo as correo , clientes.Bonus as bonus , clientes.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from clientes inner join departamentos on clientes.Cod_Dep=departamentos.Cod_Dep order by " . $orden;
+		$sql = "SELECT * from clientes order by " . $orden;
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 		while ($fila = $statement->fetch()) {
@@ -77,7 +77,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT clientes.Cod_Emp as codigo , clientes.Nombre as nombre , clientes.correo as correo , clientes.Bonus as bonus , clientes.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from clientes inner join departamentos on clientes.Cod_Dep=departamentos.Cod_Dep where Cod_Emp=:codigo;";
+		$sql = "SELECT * from clientes where DNI like :codigo;";
 		$statement = $conexion->prepare($sql);
 		$codigo = $codigo . '%';
 		$statement->bindParam(':codigo', $codigo);
@@ -93,7 +93,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT Cod_Emp ,Nombre as nombre  , Bonus as bonus , correo from clientes where Cod_Emp like :codigo";
+		$sql = "SELECT * from clientes where DNI like :codigo";
 		$statement = $conexion->prepare($sql);
 		$codigo = $codigo . '%';
 		$statement->bindParam(':codigo', $codigo);
@@ -109,7 +109,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT clientes.Cod_Emp as codigo , clientes.Nombre as nombre , clientes.correo as correo , clientes.Bonus as bonus , clientes.fecha_contrato as fecha , departamentos.Nombre as departamento, departamentos.Salario as salario , (bonus + salario) AS totalsalario from clientes inner join departamentos on clientes.Cod_Dep=departamentos.Cod_Dep where Cod_Emp= :codigo;";
+		$sql = "SELECT * from clientes where DNI like :codigo;";
 		$statement = $conexion->prepare($sql);
 
 		$statement->bindParam(':codigo', $codigo);
@@ -120,20 +120,20 @@ class Consultas
 		return $registro;
 	}
 
-	public function modificarclientes($codigo, $nombre, $correo , $bonus , $dep)
+	public function modificarclientes($codigo,$nombre, $dni, $correo , $tel)
 	{
-		$registro = null;
+
 
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "update clientes set Nombre= :nombre, correo= :correo , Bonus= :bonus , Cod_Dep= :dep where Cod_Emp= :codigo";
+		$sql = "update clientes set Nombre= :nombre, DNI= :dni , Correo= :correo , Tel= :tel where DNI like :codigo";
 		$statement = $conexion->prepare($sql);
 		$statement->bindParam(':codigo', $codigo);
 		$statement->bindParam(':nombre', $nombre);
-		$statement->bindParam(':correo', $correo);
-		$statement->bindParam(':bonus', $bonus);
-		$statement->bindParam(':dep', $dep);
+		$statement->bindParam(':dni', $dni);
+		$statement->bindParam(':correo', $correo);		
+		$statement->bindParam(':tel', $tel);
 
 		if (!$statement) {
 			return "ERROR en la modificación del registro.

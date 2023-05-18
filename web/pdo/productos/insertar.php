@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Insertar Empleado</title>
+	<title>Insertar Producto</title>
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 			selectPuesto();
 		?>
 		<div class="inicio">
-<a href="empleados.php">Inicio</a>
+<a href="productos.php">Inicio</a>
 </div>
 </body>
 </html>

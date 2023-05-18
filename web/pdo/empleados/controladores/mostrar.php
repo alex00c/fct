@@ -102,7 +102,7 @@
 			$conexion=$modelo->conectar();
 			echo "
 			<fieldset>
-			<legend>Insercion de asignatura</legend>
+			<legend>Insercion de Empleado</legend>
 			<div class='todo'>
 			<div id='form'>
 			

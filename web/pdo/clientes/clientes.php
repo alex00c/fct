@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ver Productos</title>
+	<title>Ver Clientes</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/principal.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -42,12 +42,13 @@
 			background-color: rgb(219, 246, 217);
 		}
 	</style>
-	<h1>Relacion de Productos</h1><br>
+	<h1>Relacion de Clientes</h1><br>
 	<div class="busqueda">
 	<form>
 		<input type="text" name="buscar">
 		<input type="submit" value="BUSCAR">
 	</form>
+	
 </div>
 <br>
 
@@ -55,7 +56,7 @@
 
 <div class="insertar">
 	<br>
-<a href="insertar.php">Nuevo Producto</a>
+<a href="insertar.php">Nuevo Cliente</a>
 <br>
 </div>
 <div class="insertar">
@@ -65,7 +66,7 @@
 	if (isset($_REQUEST['buscar'])) {
 		buscar($_REQUEST['buscar']);
 	}else{
-		borrado();
+		cargar();
 	}
 	?>
 	

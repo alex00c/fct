@@ -8,23 +8,24 @@ CREATE TABLE IF NOT EXISTS clientes (
 
 -- Crear tabla de productos
 CREATE TABLE IF NOT EXISTS productos (
-    Cod_Pro INT PRIMARY KEY,
+    Cod_Pro INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100),
     Precio DECIMAL(10,2),
     stock INT
 );
 
-CREATE TABLE IF NOT EXISTS licencia (
+CREATE TABLE IF NOT EXISTS identificador (
     Cod_Pro INT,
-    licencia VARCHAR(50) PRIMARY KEY,
-    FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro)
+    num_serie VARCHAR(50) PRIMARY KEY,
+    FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
+    ADD CONSTRAINT unique_licencia_cod_pro UNIQUE (num_serie, Cod_Pro);
 );
 ALTER TABLE licencia
 ADD CONSTRAINT unique_licencia_cod_pro UNIQUE (licencia, Cod_Pro);
 
 -- Crear tabla de departamentos
 CREATE TABLE IF NOT EXISTS departamentos (
-    Cod_Dep INT PRIMARY KEY,
+    Cod_Dep INTAUTO_INCREMENTAL PRIMARY KEY,
     Nombre VARCHAR(100),
     Salario DECIMAL(10,2)
 );

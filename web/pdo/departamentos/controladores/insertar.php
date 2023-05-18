@@ -2,19 +2,17 @@
 	require('../modelos/class.conexion.php');
 	require('../modelos/class.consultas.php');
 	$nombre=$_REQUEST['nombre'];
-	$dni=$_REQUEST['DNI'];
-	$correo=$_REQUEST['correo'];
-	$tel=$_REQUEST['tel'];
-	
+	$salario=$_REQUEST['salario'];
+	$codigo=$_REQUEST['codigo'];
 
 
 	$mensaje=null;
 
-if (strlen($nombre)>0 && strlen($dni)>0) {
+if (strlen($nombre)>0 && strlen($salario)>0) {
 
 	$consulta=new Consultas();
-	$consulta->insertarclientes($nombre,$dni,$correo,$tel);
-	echo "<a href='../clientes.php'>Volver</a>";
+	$consulta->insertardep($codigo,$nombre,$salario);
+	echo "<a href='../empleados.php'>Volver</a>";
 }else{
 	echo "Por favor, rellena todos los campos";
 }
