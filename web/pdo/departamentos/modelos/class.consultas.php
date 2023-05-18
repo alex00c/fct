@@ -52,6 +52,9 @@ class Consultas
 			return "ERROR: No se ha podido borrar.";
 		} else {
 			$statement->execute();
+			// Verificar si hay errores en la ejecución de la consulta
+			$errorInfo = $statement->errorInfo();
+			var_dump($errorInfo);
 			return "El registro se ha borrado correctamente.";
 		}
 	}

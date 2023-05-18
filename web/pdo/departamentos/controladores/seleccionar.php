@@ -10,7 +10,7 @@ function seleccion(){
 
 				     
 				      <label for="nombre">Nombre:</label>
-				      <input type="text" name="nombre" value="'.$registro['nombre'].'"><br>
+				      <input type="text" name="nombre" value="'.$registro['Nombre'].'"><br>
 					  <label for="salario">Salario:</label>
 				      <input type="text" name="salario" value="'.$registro['Salario'].'"><br>';
 

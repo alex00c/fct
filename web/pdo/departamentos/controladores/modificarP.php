@@ -8,7 +8,7 @@
 	$codigo=$_REQUEST['codigo'];
 
 
-	$mensaje=$consulta->insertardep($codigo,$nombre,$salario);
+	$mensaje=$consulta->modificardep($codigo,$nombre,$salario);
 
 	
 	echo $mensaje;
