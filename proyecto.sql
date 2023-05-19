@@ -11,14 +11,14 @@ CREATE TABLE IF NOT EXISTS productos (
     Cod_Pro INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100),
     Precio DECIMAL(10,2),
-    stock INT
+
 );
 
 CREATE TABLE IF NOT EXISTS identificador (
     Cod_Pro INT,
     num_serie VARCHAR(50) PRIMARY KEY,
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
-    ADD CONSTRAINT unique_licencia_cod_pro UNIQUE (num_serie, Cod_Pro);
+    CONSTRAINT unique_licencia_cod_pro UNIQUE (num_serie, Cod_Pro);
 );
 ALTER TABLE licencia
 ADD CONSTRAINT unique_licencia_cod_pro UNIQUE (licencia, Cod_Pro);
@@ -66,17 +66,21 @@ CREATE TABLE IF NOT EXISTS detalles_ordenes (
 
 CREATE TABLE ventas (
     Cod_Pro INT,
-    Licencias INT,
-    id_orden INT,
+    num_serie VARCHAR(50),
+    id_orden VARCHAR(20),
     fecha DATE,
-    
+    FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
+    FOREIGN KEY (num_serie) REFERENCES identificador (num_serie),
+    FOREIGN KEY (id_orden) REFERENCES ordenes (id_orden)
 );
 
 -- Guarda las ordenes que se han cancelado ademas del motivo de la cancelacion
 
 CREATE TABLE ordenes_canceladas (
-    id_orden INT,
+    id_orden VARCHAR(30),
     motivo VARCHAR(255),
     fecha_cancelacion DATE,
+    precio DECIMAL(10,2)
     PRIMARY KEY (id_orden)
+
 );

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Menú Horizontal</title>
+	<style>
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		.menu-item {
+			margin: 10px;
+		}
+body{
+    background-color: rgba(60,105,169,255);
+}
+
+        .logo {
+margin: auto;
+			display: block;
+			width: 100%;
+            height: 600px; 
+            width: 800px;/* Ajusta el valor según el tamaño deseado */
+		}
+        
+	</style>
+</head>
+<body>
+	<div class="header">
+		<img src="fondoempresa.png" alt="Cabecera" class="logo">
+	</div>
+	<div class="container">
+		<a class="menu-item" href="./empleados/empleados.php">Empleados</a>
+		<a class="menu-item" href="./departamentos/departamentos.php">Departamentos</a>
+		<a class="menu-item" href="./clientes/clientes.php">Clientes</a>
+		<a class="menu-item" href="./ordenes/ordenes.php">Ordenes</a>
+		<a class="menu-item" href="./productos/productos.php">Productos</a>
+		<a class="menu-item" href="./detalles/detalles.php">Ordenes Detalladas</a>
+		<a class="menu-item" href="./canceladas/identificador.php">Cancelaciones</a>
+		<a class="menu-item" href="./crearorden/insertar.php">Crear Orden</a>
+		<a class="menu-item" href="./ventas/identificador.php">Ventas</a>
+	</div>
+</body>
+</html>

@@ -45,16 +45,21 @@ END //
 
 DELIMITER ;
 
--- Introduce las licencias vendidas en la tabla 'ventas'
+-- Elimina he inserta en otra tabla las ordenes canceladass
 
 DELIMITER //
 
-CREATE TRIGGER insertar_ventas AFTER DELETE ON licencias
+CREATE TRIGGER eliminar_orden
+AFTER DELETE ON ordenes
 FOR EACH ROW
 BEGIN
-    INSERT INTO ventas (Cod_Pro, fecha) VALUES (OLD.Cod_Pro, NOW());
+    -- Elimina en la tabla detalles_ordenes
+ DELETE FROM detalles_ordenes
+    WHERE id_orden = OLD.id_orden;
+
+    -- Insertar en la tabla ordenes_canceladas
+    INSERT INTO ordenes_canceladas (id_orden, motivo, fecha_cancelacion, precio)
+    VALUES (OLD.id_orden, 'Orden cancelada', CURDATE(), OLD.precio);
 END //
 
 DELIMITER ;
-
-

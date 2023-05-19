@@ -115,8 +115,8 @@
 			
 			<form action='./controladores/insertarid.php'>";
 			
-			echo "<label for='departamento'>Departamento:</label>";
-		    echo "<select name='departamento' id='departamento'> <br>";
+			echo "<label for='codigo'>Producto:</label>";
+		    echo "<select name='codigo' id='codigo'> <br>";
 		  
 		  		
 			$sql="SELECT Cod_Pro , Nombre from productos order by Cod_Pro";
@@ -128,8 +128,8 @@
     		
 		  	         echo("</select><br>");
 					 echo"
-		<label for='nuemero'>Numero de Serie:</label>
-		<input type='text' name='nuemero' id='nuemero'required><br>
+		<label for='numero'>Numero de Serie:</label>
+		<input type='text' name='numero' id='numero'required><br>
 
 
 		<div class='botones'>
