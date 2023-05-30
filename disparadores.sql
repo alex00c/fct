@@ -13,6 +13,7 @@ BEGIN
     WHERE id_orden = NEW.id_orden;
 END&&
 
+
 -- Actualiza el precio de la orden cuanod se modifica la tabla detalles_ordenes
 
 DELIMITER &&
@@ -28,22 +29,6 @@ BEGIN
 END &&
 DELIMITER ;
 
--- Elimina tantas licencias como cantidad de producto haya comprado el cliente 
-
-DELIMITER //
-
-CREATE TRIGGER eliminar_licencias AFTER INSERT ON detalles_ordenes
-FOR EACH ROW
-BEGIN
-    DECLARE cantidad INT;
-    SET cantidad = NEW.cantidad;
-    WHILE cantidad > 0 DO
-        DELETE FROM licencias WHERE Cod_Pro = NEW.Cod_Pro LIMIT 1;
-        SET cantidad = cantidad - 1;
-    END WHILE;
-END //
-
-DELIMITER ;
 
 -- Elimina he inserta en otra tabla las ordenes canceladass
 
@@ -63,3 +48,27 @@ BEGIN
 END //
 
 DELIMITER ;
+
+-- Inserta en la tabla ventas los productos vendidos al hacer una orden
+DELIMITER //
+
+CREATE TRIGGER insertar_ventas AFTER INSERT ON detalles_ordenes
+FOR EACH ROW
+BEGIN
+    DECLARE cantidad INT;
+    SET cantidad = NEW.cantidad;
+
+    WHILE cantidad > 0 DO
+        INSERT INTO ventas (Cod_Pro, num_serie, id_orden, fecha)
+        SELECT d.Cod_Pro, i.num_serie, NEW.id_orden, CURRENT_DATE()
+        FROM detalles_ordenes d
+        JOIN identificador i ON d.Cod_Pro = i.Cod_Pro
+        WHERE d.id_orden = NEW.id_orden
+        LIMIT 1;
+
+        SET cantidad = cantidad - 1;
+    END WHILE;
+END //
+
+DELIMITER ;
+

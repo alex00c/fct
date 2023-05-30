@@ -115,7 +115,7 @@ function buscar($codigo){
 				
 				
 					echo "</table>";
-					echo "<p>PDF</p><a href='generatepdf.php?buscar=". $registro['id']."'><i class='material-icons'>picture_as_pdf</i></a>";
+					echo "<div id='pdf'><p>PDF</p><a href='generatepdf.php?buscar=". $registro['id']."'><i class='material-icons'>picture_as_pdf</i></a></div>";
 					echo "<div id=precio>";
 					echo "<h2>PRECIO TOTAL DE LA ORDEN</h2>";
 					echo "<h3>".$registro['pago']."</h3>";

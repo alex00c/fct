@@ -33,9 +33,7 @@ CREATE TABLE IF NOT EXISTS departamentos (
 -- Crear tabla de empleados
 CREATE TABLE IF NOT EXISTS empleados (
     Cod_Emp INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100),
-    Correo VARCHAR(100),
-    Bonus DECIMAL(10,2),
+    
     fecha_contrato DATE,
     telefono VARCHAR(10),
     Cod_Dep INT,

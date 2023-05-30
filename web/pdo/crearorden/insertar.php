@@ -19,7 +19,7 @@
 			selectPuesto();
 		?>
 		<div class="inicio">
-<a href="../ordenes/ordenes.php">Inicio</a>
+<a href="../ordenes/ordenes.php">Ordenes</a>
 </div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 			$fila=$consulta->cargaridentificador();
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
-			<th><aNombre</a></th>
+			<th><a>Nombre</a></th>
 			<th><a>Numero de Serie</a></th>
 
 			

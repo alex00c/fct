@@ -38,9 +38,9 @@
     }
 </script>
 	<style type="text/css">
-		body{
-			background-color: rgb(219, 246, 217);
-		}
+body{
+    background-color: rgba(60, 105, 169, 255);
+}
 	</style>
 	<h1>Productos</h1><br>
 	<div class="busqueda">
