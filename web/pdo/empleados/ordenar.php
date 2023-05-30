@@ -26,10 +26,9 @@
     }
     }
 </script>
-	<style type="text/css">
-		body{
-			background-color: rgb(219, 246, 217);
-		}
+	<style type="text/css">body{
+    background-color: rgba(60, 105, 169, 255);
+}
 	</style>
 	<h1>Relacion de Empleados</h1><br>
 	<div class="busqueda">
@@ -48,7 +47,7 @@
 <br>
 </div>
 <div class="inicio">
-<a href="index.html">Inicio</a>
+<a href="../index.html">Inicio</a>
 </div>
 	<?php
 	if (isset($_REQUEST['buscar'])) {

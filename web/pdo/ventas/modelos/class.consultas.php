@@ -9,7 +9,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT productos.Nombre as nombre , identificador.num_serie as numero from identificador inner join productos on identificador.Cod_Pro = productos.Cod_Pro order by productos.Nombre;";
+		$sql = "SELECT p.Nombre as nombre , v.num_serie as numero , v.id_orden as id , v.fecha as fecha from ventas v inner join productos p on v.Cod_Pro=p.Cod_Pro;";
 		$statement = $conexion->prepare($sql);
 		$statement->execute();
 
@@ -26,7 +26,7 @@ class Consultas
 		$modelo = new Conexion();
 		$conexion = $modelo->conectar();
 
-		$sql = "SELECT productos.Nombre as nombre , identificador.num_serie as numero from identificador inner join productos on identificador.Cod_Pro = productos.Cod_Pro where num_serie like :codigo;";
+		$sql = "SELECT p.Nombre as nombre , v.num_serie as numero , v.id_orden as id , v.fecha as fecha from ventas v inner join productos p on v.Cod_Pro=p.Cod_Pro where v.id_orden like :codigo;";
 		$statement = $conexion->prepare($sql);
 		$codigo = $codigo . '%';
 		$statement->bindParam(':codigo', $codigo);

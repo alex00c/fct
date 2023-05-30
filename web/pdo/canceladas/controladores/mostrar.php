@@ -4,15 +4,19 @@
 			$fila=$consulta->cargaridentificador();
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
 			echo "<tr>
-			<th><aNombre</a></th>
-			<th><a>Numero de Serie</a></th>
+			<th><a>Id de orden</a></th>
+			<th><a>Motivo de la cancelacion</a></th>
+			<th><a>Fecha de cancelacion</a></th>
+			<th><a>Precio</a></th>
 
 			
 						
 					</tr>";
 			foreach ($fila as $registro) {
-				echo "<tr><td>".$registro['nombre']."</td>";
-				echo "<td>".$registro['numero']."</td>";
+				echo "<tr><td>".$registro['id_orden']."</td>";
+				echo "<td>".$registro['motivo']."</td>";
+				echo "<td>".$registro['fecha_cancelacion']."</td>";
+				echo "<td>".$registro['precio']."</td>";
 
 
 			}
@@ -30,15 +34,18 @@ function buscar($codigo){
 			echo "Error: No se han encontrado resultados para el código proporcionado.";
 		} else {
 			echo "<div id='caja'><table class='table table-striped' border='1'>";
-			echo "<tr>
-			<th><a href='ordenar.php?orden=nombre'>Nombre</a></th>
-			<th><a>Numero de Serie</a></th>
-			
+			echo "<tr>";
+			echo "<th><a>Id de orden</a></th>
+			<th><a>Motivo de la cancelacion</a></th>
+			<th><a>Fecha de cancelacion</a></th>
+			<th><a>Precio</a></th>
 						
 					</tr>";
 			foreach ($fila as $registro) {
-				echo "<tr><td>".$registro['nombre']."</td>";
-				echo "<td>".$registro['numero']."</td>";
+				echo "<tr><td>".$registro['id_orden']."</td>";
+				echo "<td>".$registro['motivo']."</td>";
+				echo "<td>".$registro['fecha_cancelacion']."</td>";
+				echo "<td>".$registro['precio']."</td>";
 
 
 			}

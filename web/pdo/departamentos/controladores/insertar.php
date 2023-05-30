@@ -12,7 +12,7 @@ if (strlen($nombre)>0 && strlen($salario)>0) {
 
 	$consulta=new Consultas();
 	$consulta->insertardep($codigo,$nombre,$salario);
-	echo "<a href='../empleados.php'>Volver</a>";
+	echo "<a href='../departamentos.php'>Volver</a>";
 }else{
 	echo "Por favor, rellena todos los campos";
 }

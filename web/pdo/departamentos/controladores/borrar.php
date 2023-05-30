@@ -4,6 +4,6 @@
 
 	$codigo=$_REQUEST['codigo'];
 	$consulta=new Consultas();
-	$consulta->bordep($codigo);
+	$consulta->borrardep($codigo);
 	echo "<a href='../departamentos.php'>Volver</a>"
 ?>

@@ -89,13 +89,13 @@
 			<div id='form'>
 			
 			<form action='./controladores/insertar.php'>
-			
+			<label for='id'>Id:</label>
+			<input type='number' name='id' id='id'required><br>	
 		<label for='nombre'>Nombre:</label>
 		<input type='text' name='nombre' id='nombre'required><br>
 		<label for='precio'>Precio:</label>
 		<input type='text' name='precio' id='precio'required><br>
-		<label for='id'>Numero de Serie:</label>
-		<input type='text' name='id' id='id'required><br>
+
 
 		<div class='botones'>
 		<input type='submit' value='GUARDAR'>

@@ -55,7 +55,7 @@
 
 
 <div class="insertar">
-<a href="index.html">Inicio</a>
+<a href="../index.html">Inicio</a>
 </div>
 	<?php
 	if (isset($_REQUEST['buscar'])) {

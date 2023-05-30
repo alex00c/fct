@@ -56,11 +56,11 @@
 
 <div class="insertar">
 	<br>
-<a href="insertar.php">Nueva Orden</a>
+<a href="../crearorden/insertar.php">Nueva Orden</a>
 <br>
 </div>
 <div class="insertar">
-<a href="index.html">Inicio</a>
+<a href="../index.html">Inicio</a>
 </div>
 	<?php
 	if (isset($_REQUEST['buscar'])) {

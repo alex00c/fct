@@ -4,6 +4,6 @@
 
 	$codigo=$_REQUEST['codigo'];
 		$consulta=new Consultas();
-	$consulta->borclientes($codigo);
+	$consulta->borrarclientes($codigo);
 	echo "<a href='../clientes.php'>Volver</a>"
 ?>

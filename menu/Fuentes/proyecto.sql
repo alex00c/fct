@@ -67,7 +67,9 @@ CREATE TABLE ventas (
     num_serie VARCHAR(50),
     id_orden VARCHAR(20),
     fecha DATE,
-
+    FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
+    FOREIGN KEY (num_serie) REFERENCES identificador (num_serie),
+    FOREIGN KEY (id_orden) REFERENCES ordenes (id_orden)
 );
 
 -- Guarda las ordenes que se han cancelado ademas del motivo de la cancelacion

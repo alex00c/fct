@@ -1,17 +1,17 @@
 <?php 
 	require('../modelos/class.conexion.php');
 	require('../modelos/class.consultas.php');
-	$codigo=$_REQUEST['Cod_Pro'];
-	$nombre=$_REQUEST['Nombre'];
-	$precio=$_REQUEST['Precio'];
-	$numero=$_REQUEST['id'];
+	$codigo=$_REQUEST['id'];
+	$nombre=$_REQUEST['nombre'];
+	$precio=$_REQUEST['precio'];
+
 	
 
 
 
 	$mensaje=null;
 
-if (strlen($nombre)>0 && strlen($correo)>0) {
+if (strlen($nombre)>0 && strlen($precio)>0) {
 
 	$consulta=new Consultas();
 	$consulta->insertarproductos($codigo,$nombre,$precio);
