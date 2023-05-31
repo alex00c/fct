@@ -1,0 +1,297 @@
+Fast_Conf_P0>en
+
+Fast_Conf_P0#sh run
+!T2600G-28TS
+#
+vlan 10
+ name "Empleados"
+#
+vlan 60
+ name "Discos"
+#
+vlan 80
+ name "Conexiones"
+#
+vlan 200
+ name "Seguridad"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+hostname "Fast_Conf_P0"
+location "Empresa"
+contact-info "Xander y Sergio"
+serial_port baud_rate 38400
+#
+logging monitor
+#
+system-time ntp UTC 8.8.8.8 8.8.4.4 1
+system-time dst recurring last Sun Mar 02:00 last Sun Oct 02:00 60
+#
+#
+#
+tacacs-server host 192.168.0.33 port 49 timeout 5 key 0 aN9G=SDW2C=@1
+tacacs-server host 192.168.0.34 port 49 timeout 5 key 0 =F3SDAWF9D2F<G1
+aaa authentication login clearpass tacacs local
+user name admin privilege admin secret 5 $1$O1J<EAWEHISCNF:C=F3F9D2F<G1K/F2B;%{{'{
+user name xander privilege admin secret 5 $1$K<Mz.EWwaN9G=C=@1O/K2A9H5E<I6M0C7{{])/
+user name sergio privilege user secret 5 $1$H9EWI2/N5K8I:H2K1H/E4A<L9N/L;I0F4/-!*.
+telnet disable
+line ssh
+login authentication clearpass
+#
+#
+lldp
+#
+#
+crypto pki certificate chain SLA-TrustPoint certificate ca 01 
+30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 32310E30 0C060355 040A1305 43697363 6F312030 
+1E060355 04031317 43697363 6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 43697363
+6F312030 1E060355 04031317 436973AE 6F204C69 63656E73 696E6720 526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02 82010100 A6BCBD96 131E05F7 145EA72C
+2CD686E6 17222EA1 F1EFF64D CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE 4AA4E80D
+DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC 7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7
+4BC8E00F 539BA42B 42C68BB7 C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 DFC7C6CF
+04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06
+092A8648 86F70D01 010B0500 03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B D98987BF
+E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C 7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F
+5BDDEB86 C71E3B49 1765308B 5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 418616A9
+ 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 D697DF7F 
+28 quit crypto pki certificate chain TP-self-signed-338173705 certificate self-signed 01 
+3082032E 30820216 A0030201 02020132 300D0609 2A864886 F70D0101 05050030 30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 69666963 6174652D 33333831 37333730
+35301E17 0D323330 33323730 38323735 395A170D 33333033 32363038 32373539 5A303031 2E302C06 03550403 1325494F 532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3333 38313733
+37303530 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02 82010100 A8439D6C 68D007B3 4F8C8180 C98A6D7C 64B3DC08 A248F4FC 016811CC F5AC7327 DEBC60B4 DBBC65A2 1EE9F0AA
+FC5B6849 4046B111 2F6EA49E 9C88A9A6 67D53725 17FFE953 75FBEAE2 E03A03E1 80AD2CA9 27E22587 41D4E633 13D2D615 AE123843 4A168965 CB3B5AED CE626B78 3C53670C B04A18A7 D36B9EB7 A25E5878
+BFF602BD F7579417 C1A9CD37 884CC8BD 52E391C2 2B3BCAC8 71939605 BBE9BC4A 7F79A87D 31139400 864F9772 AE4554D3 A460AB80 F83557BF 8139A5A0 BE058117 F374E178 F2EC4338 A1450602 1D5D1866
+183F1EC7 2312CDCE F6E657A9 9B3FCF47 0E3E2721 257FC88E 97901467 3740AB18 AF06C9F0 8B5C5916 AB96AFB3 D1D10EB3 7CFA61ED 02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F
+0603551D 23041830 16801488 8471849E FCC54A09 E41A307E A3EECD76 B2DDAD30 1D060355 1D0E0416 04148884 71849EFC C54A09E4 1A307EA3 EECD76B2 DDAD300D 06092A86 4886F70D 01010505 00038201
+01008290 2E6E835A 2F13A5ED D90AE14F FF2225C5 9D8F7B3E F8F50693 3628E8F5 F55811A5 888B9C59 CCDEE857 5309E730 7634A80D 67F68047 1324FFD2 03770A63 5696E14C 2B512B2C B32AF74F 078CE08B
+40ED4EC8 F516B781 BBCD83C5 D541B3FD EE0C9DCF 8C33D849 3CC6095A EF7449BA E921453D 60AC6156 1F54FFF3 C20318B9 845EA277 5AC62462 8354523E 3025A0FD 312CAF38 0C9BED4F 71DBEA5D 8AA9CC71
+45D94287 7EA7EC8F A1E0F817 835D2185 7A38BC00 8C38CDFD F617B449 33F199DA 72A0F300 D3B032D6 3043D5AC 668849F1 4CBC4365 54713482 5B4E0F5F D6A4D368 E0010F03 0B33EB40 A403A319 967E8724
+F5BCF015 7074EDA0 4712171A 1B8C4B5E 1A62 
+quit 
+#
+#
+#
+#
+#
+#
+#
+ip http secure-session timeout 30
+ip ssh server
+ip ssh version v2
+#
+#
+spanning-tree
+spanning-tree mode rapid-pvst
+#
+snmp-server
+snmp-server community "fastconf_Monitor" read-only "viewDefault"
+#
+snmp-server host 192.168.0.2 162 "fastconf_Monitor" smode v2c slev noAuthNoPriv type trap
+snmp-server host 192.168.0.140 162 "fastconf_Monitor" smode v2c slev noAuthNoPriv type trap
+#
+#
+snmp-server community lectura RO
+snmp-server community fastconf_Monitor RO 
+snmp-server location Oficinas FastConf
+snmp-server contact adminred@fastconf.net
+snmp-server chassis-id Fast_Conf_P0
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart 
+snmp-server enable traps transceiver all snmp-server enable traps tty 
+snmp-server enable traps auth-framework sec-violation 
+snmp-server enable traps config-copy 
+snmp-server enable traps config 
+snmp-server enable traps config-ctid 
+snmp-server enable traps energywise 
+snmp-server enable traps fru-ctrl 
+snmp-server enable traps entity 
+snmp-server enable traps power-ethernet police 
+snmp-server enable traps cpu threshold 
+snmp-server enable traps bridge newroot topologychange 
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency 
+snmp-server enable traps syslog 
+snmp-server enable traps vtp 
+snmp-server enable traps vlancreate 
+snmp-server enable traps vlandelete 
+snmp-server enable traps flash insertion removal 
+snmp-server enable traps port-security 
+snmp-server enable traps envmon fan shutdown supply temperature status 
+snmp-server enable traps errdisable 
+snmp-server enable traps mac-notification change move threshold 
+snmp-server enable traps vlan-membership 
+snmp-server host 192.168.0.33 version 2c fastconf_Monitor 
+snmp-server host 192.168.0.34 version 2c fastconf_Monitor 
+snmp-server host 192.168.0.99 version 2c fastconf_Monitor
+#
+ip http session timeout 30
+#
+ip route 0.0.0.0 0.0.0.0 192.168.0.1
+#
+#
+access-list create 100 name "Accesso_Router"
+access-list ip 500 rule 10 permit logging enable sip 192.168.0.0 sip-mask 255.255.255.0 dip 0.0.0.0 dip-mask 0.0.0.0 protocol 1
+access-list ip 500 rule 100 deny logging enable sip 10.10.10.10 sip-mask 255.255.255.255 dip 192.168.0.2 dip-mask 255.255.255.0
+#
+access-list bind 500 interface gigabitEthernet 1/0/24
+#
+#
+#
+#
+#
+#
+#
+interface port-channel 2
+  switchport general allowed vlan 10,60,80 tagged
+  spanning-tree
+  spanning-tree common-config point-to-point open
+  spanning-tree guard loop
+#
+interface vlan 1
+  ip address 192.168.0.2
+  no ipv6 enable
+#
+interface vlan 80
+  ip address 192.168.0.33 255.255.255.128
+  ip address 192.168.0.34 255.255.255.128 secondary
+  no ipv6 enable
+#
+interface gigabitEthernet 1/0/1
+  description "Salida"
+  switchport general allowed vlan 10 untagged
+  switchport pvid 10
+  switchport-mode trunk
+
+#
+interface gigabitEthernet 1/0/2
+  description "Conexion_server"
+  switchport pvid 13
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/3
+  description "Conexion_router"
+  switchport general allowed vlan 80 untagged
+  switchport pvid 80
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/4
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/5
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/6
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/7
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/8
+  description "backup"
+  switchport general allowed vlan 80 untagged
+  switchport pvid 80
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/9
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/10
+  description "discos"
+  switchport general allowed vlan 60 untagged
+  switchport pvid 60
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/11
+  description "Empleados"
+  switchport general allowed vlan 10 untagged
+  switchport pvid 10
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+
+#
+interface gigabitEthernet 1/0/12
+  description "Empleados_2"
+  switchport general allowed vlan 10 untagged
+  switchport pvid 10
+  spanning-tree
+  spanning-tree bpdufilter
+  spanning-tree bpduguard
+  spanning-tree guard loop
+  spanning-tree guard root
+  spanning-tree guard tc
+#
+end
