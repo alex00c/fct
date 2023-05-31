@@ -92,7 +92,7 @@ function buscar($codigo){
 			<th><a>Cantidad</a></th>
 			<th><a>Precio Unitario</a></th>
 			<th><a>Precio</a></th>
-			<th colspan='1'>Opciones</th>
+			
 			
 			
 						
@@ -107,7 +107,7 @@ function buscar($codigo){
 				echo "<td>".$registro['precioud']."</td>";
 				echo "<td>".$registro['total']."</td>";
 				
-				echo "<td><a href='borrarM.php?codigo=". $registro['id']."'>Borrar</td>";
+
 				
 
 				
