@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS clientes (
 CREATE TABLE IF NOT EXISTS productos (
     Cod_Pro INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100),
-    Precio DECIMAL(10,2),
+    Precio DECIMAL(10,2)
 
 );
 
@@ -18,17 +18,18 @@ CREATE TABLE IF NOT EXISTS identificador (
     Cod_Pro INT,
     num_serie VARCHAR(50) PRIMARY KEY,
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
-    CONSTRAINT unique_licencia_cod_pro UNIQUE (num_serie, Cod_Pro);
+    CONSTRAINT unique_licencia_cod_pro UNIQUE (num_serie, Cod_Pro)
 );
 ALTER TABLE licencia
 ADD CONSTRAINT unique_licencia_cod_pro UNIQUE (licencia, Cod_Pro);
 
 -- Crear tabla de departamentos
 CREATE TABLE IF NOT EXISTS departamentos (
-    Cod_Dep INTAUTO_INCREMENTAL PRIMARY KEY,
+    Cod_Dep INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100),
     Salario DECIMAL(10,2)
 );
+
 
 -- Crear tabla de empleados
 CREATE TABLE IF NOT EXISTS empleados (
@@ -78,7 +79,7 @@ CREATE TABLE ordenes_canceladas (
     id_orden VARCHAR(30),
     motivo VARCHAR(255),
     fecha_cancelacion DATE,
-    precio DECIMAL(10,2)
+    precio DECIMAL(10,2),
     PRIMARY KEY (id_orden)
 
 );

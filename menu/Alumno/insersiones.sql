@@ -50,7 +50,7 @@ INSERT INTO detalles_ordenes (id_orden, Cod_Pro, cantidad, precio_unitario) VALU
 ('ORD003', 6, 1, 299.00),
 ('ORD003', 4, 2, 99.00);
 
-INSERT INTO licencia (Cod_Pro, licencia)
+INSERT INTO identificador (Cod_Pro, num_serie)
 VALUES 
 (1, 'ABC-DEF-GHI'),
 (1, 'JKL-MNO-PQR'),
