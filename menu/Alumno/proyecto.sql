@@ -16,12 +16,11 @@ CREATE TABLE IF NOT EXISTS productos (
 
 CREATE TABLE IF NOT EXISTS identificador (
     Cod_Pro INT,
-    num_serie VARCHAR(50) PRIMARY KEY,
+    num_serie VARCHAR(50),
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro),
     CONSTRAINT unique_licencia_cod_pro UNIQUE (num_serie, Cod_Pro)
 );
-ALTER TABLE licencia
-ADD CONSTRAINT unique_licencia_cod_pro UNIQUE (licencia, Cod_Pro);
+
 
 -- Crear tabla de departamentos
 CREATE TABLE IF NOT EXISTS departamentos (
@@ -34,9 +33,10 @@ CREATE TABLE IF NOT EXISTS departamentos (
 -- Crear tabla de empleados
 CREATE TABLE IF NOT EXISTS empleados (
     Cod_Emp INT AUTO_INCREMENT PRIMARY KEY,
-    
+    Nombre VARCHAR(50),
+    Correo VARCHAR(100),
+    Bonus DECIMAL(10,2),
     fecha_contrato DATE,
-    telefono VARCHAR(10),
     Cod_Dep INT,
     FOREIGN KEY (Cod_Dep) REFERENCES departamentos (Cod_Dep)
 );
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS detalles_ordenes (
     FOREIGN KEY (Cod_Pro) REFERENCES productos (Cod_Pro)
 );
 
---Almacena las licencias / nºde serie de productos vendidos
+-- Almacena las licencias / nºde serie de productos vendidos
 
 CREATE TABLE ventas (
     Cod_Pro INT,

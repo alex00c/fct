@@ -11,11 +11,11 @@ VALUES ('Ana Martínez', '12345678A', 'anamartinez@example.com', '123456789'),
        ('Marta Rodríguez', '98765432E', 'martarodriguez@example.com', '876543210'),
        ('Javier Torres', '34567890F', 'javiertorres@example.com', '345678901');
 
-INSERT INTO productos (Cod_Pro, Nombre , Precio , stock)
-VALUES (1, 'Microsoft Office', 139, 20),
-(2, 'Adobe Photoshop', 299 , 24),
-(3, 'AutoCAD', 199 , 57),
-(4, 'Sketch', 99 , ),
+INSERT INTO productos (Cod_Pro, Nombre , Precio)
+VALUES (1, 'Microsoft Office', 139),
+(2, 'Adobe Photoshop', 299),
+(3, 'AutoCAD', 199 ),
+(4, 'Sketch', 99 ),
 (5, 'VMware Fusion', 149),
 (6, 'Final Cut Pro', 299);
 
