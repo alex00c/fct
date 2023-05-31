@@ -15,7 +15,7 @@
 			
 			
 			
-						<th colspan='2'>Opciones</th>
+						<th colspan='1'>Opciones</th>
 					</tr>";
 			foreach ($fila as $registro) {
 				echo "<tr><td>".$registro['id']."</td>";
@@ -30,7 +30,7 @@
 				
 				
 
-				echo "<td><a href='./modificar.php?codigo=". $registro['id']."&cod_pro=". $registro['codigo']."'>Modificar</td>";
+				
 				echo "<td><a href='borrarM.php?codigo=". $registro['id']."'>Borrar</td></tr>";
 				
 			}
@@ -54,7 +54,7 @@
 			<th><a>Precio Total</a></th>
 			
 			
-						<th colspan='2'>Opciones</th>
+						<th colspan='1'>Opciones</th>
 					</tr>";
 			foreach ($fila as $registro) {
 				echo "<tr><td>".$registro['id']."</td>";
@@ -67,7 +67,7 @@
 				echo "<td>".$registro['total']."</td>";
 				
 
-				echo "<td><a href='./modificar.php?codigo=". $registro['id']."&cod_pro=". $registro['codigo']."'>Modificar</td>";
+				
 				echo "<td><a href='borrarM.php?codigo=". $registro['id']."'>Borrar</td></tr>";
 			}
 			echo "</table></div>";
@@ -92,7 +92,7 @@ function buscar($codigo){
 			<th><a>Cantidad</a></th>
 			<th><a>Precio Unitario</a></th>
 			<th><a>Precio</a></th>
-			<th colspan='2'>Opciones</th>
+			<th colspan='1'>Opciones</th>
 			
 			
 						
@@ -106,7 +106,7 @@ function buscar($codigo){
 				echo "<td>".$registro['cantidad']."</td>";
 				echo "<td>".$registro['precioud']."</td>";
 				echo "<td>".$registro['total']."</td>";
-				echo "<td><a href='./modificar.php?codigo=". $registro['id']."&cod_pro=". $registro['codigo']."'>Modificar</td>";
+				
 				echo "<td><a href='borrarM.php?codigo=". $registro['id']."'>Borrar</td>";
 				
 

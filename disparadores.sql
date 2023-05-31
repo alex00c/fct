@@ -66,9 +66,14 @@ BEGIN
         WHERE d.id_orden = NEW.id_orden
         LIMIT 1;
 
+        DELETE FROM identificador
+        WHERE num_serie = (SELECT num_serie FROM identificador WHERE Cod_Pro = NEW.Cod_Pro LIMIT 1)
+        LIMIT 1;
+
         SET cantidad = cantidad - 1;
     END WHILE;
 END //
 
 DELIMITER ;
+
 

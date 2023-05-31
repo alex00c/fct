@@ -47,7 +47,7 @@ body{
 
 <br>
 </div>
-<div class="insertar">
+<div class="inicio">
 <a href="../index.html">Inicio</a>
 </div>
 	<?php
